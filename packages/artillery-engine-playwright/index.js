@@ -231,9 +231,9 @@ class PlaywrightEngine {
         let traceScenario
         if (self.tracing){
           traceScenario = self.processor[spec.traceFlowFunction]
-          await traceScenario(page, initialContext, events, fn, spec.name)
+          await traceScenario(page, initialContext, events, fn, spec.name, context),
         } else {
-          await fn(page, initialContext, events, test);
+          await fn(page, initialContext, events, test, context);
         }
 
         await page.close();
